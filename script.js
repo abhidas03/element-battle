@@ -12,9 +12,9 @@ function playRound(playerSelection, computerSelection) {
         else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Win"
     }
     else if (playerSelection.toLowerCase() == "paper") {
-        if (computerSelection.toLowerCase() == "rock") returnMessage = "Lose" 
+        if (computerSelection.toLowerCase() == "rock") returnMessage = "Win" 
         else if (computerSelection.toLowerCase() == "paper") returnMessage = "Tie" 
-        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Win"
+        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Lose"
     }
     else if (playerSelection.toLowerCase() == "scissors") {
         if (computerSelection.toLowerCase() == "rock") returnMessage = "Lose" 
@@ -26,7 +26,13 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let userSelection = prompt("Enter Rock, Paper, or Scissors");
+        console.log(userSelection);
+        console.log(playRound(userSelection, getComputerChoice()))
+    }
+}
+
 weapons = ["rock", "paper", "scissors"];
-userSelection = "rock";
-console.log("rock")
-console.log(playRound(userSelection, getComputerChoice()));
+game();

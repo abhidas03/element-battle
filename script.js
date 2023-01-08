@@ -1,8 +1,32 @@
-weapons = ["rock", "paper", "scissors"];
-
 function getComputerChoice() {
     choice = Math.trunc((Math.random() * 3));
+    console.log(weapons[choice])
     return weapons[choice];
 }
 
-console.log(getComputerChoice());
+function playRound(playerSelection, computerSelection) {
+    let returnMessage;
+    if (playerSelection.toLowerCase() == "rock") {
+        if (computerSelection.toLowerCase() == "rock") returnMessage = "Tie" 
+        else if (computerSelection.toLowerCase() == "paper") returnMessage = "Lose" 
+        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Win"
+    }
+    else if (playerSelection.toLowerCase() == "paper") {
+        if (computerSelection.toLowerCase() == "rock") returnMessage = "Lose" 
+        else if (computerSelection.toLowerCase() == "paper") returnMessage = "Tie" 
+        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Win"
+    }
+    else if (playerSelection.toLowerCase() == "scissors") {
+        if (computerSelection.toLowerCase() == "rock") returnMessage = "Lose" 
+        else if (computerSelection.toLowerCase() == "paper") returnMessage = "Win" 
+        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Tie"
+    }
+
+    return returnMessage;
+    
+}
+
+weapons = ["rock", "paper", "scissors"];
+userSelection = "rock";
+console.log("rock")
+console.log(playRound(userSelection, getComputerChoice()));

@@ -1,45 +1,79 @@
 function getComputerChoice() {
     choice = Math.trunc((Math.random() * 3));
-    console.log(weapons[choice])
     return weapons[choice];
 }
 
 function playRound(playerSelection, computerSelection) {
-    let returnMessage;
+    let result;
     if (playerSelection.toLowerCase() == "rock") {
-        if (computerSelection.toLowerCase() == "rock") returnMessage = "Tie" 
-        else if (computerSelection.toLowerCase() == "paper") returnMessage = "Lose" 
-        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Win"
+        if (computerSelection.toLowerCase() == "rock") {
+            result = "tie" 
+        }
+        else if (computerSelection.toLowerCase() == "paper") {
+            result = "loss" 
+            computerScore++;
+        }
+        else if (computerSelection.toLowerCase() == "scissors") {
+            result = "win"
+            playerScore++;
+        }
     }
     else if (playerSelection.toLowerCase() == "paper") {
-        if (computerSelection.toLowerCase() == "rock") returnMessage = "Win" 
-        else if (computerSelection.toLowerCase() == "paper") returnMessage = "Tie" 
-        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Lose"
+        if (computerSelection.toLowerCase() == "rock") {
+            result = "win" 
+            playerScore++;
+        }
+        else if (computerSelection.toLowerCase() == "paper") {
+            result = "tie" 
+        }
+        else if (computerSelection.toLowerCase() == "scissors") {
+            result = "loss"
+            computerScore++;
+        }
     }
     else if (playerSelection.toLowerCase() == "scissors") {
-        if (computerSelection.toLowerCase() == "rock") returnMessage = "Lose" 
-        else if (computerSelection.toLowerCase() == "paper") returnMessage = "Win" 
-        else if (computerSelection.toLowerCase() == "scissors") returnMessage = "Tie"
+        if (computerSelection.toLowerCase() == "rock") {
+            result = "loss" 
+            computerScore++;
+        }
+        else if (computerSelection.toLowerCase() == "paper") {
+            result = "win"
+            playerScore++; 
+        }
+        else if (computerSelection.toLowerCase() == "scissors") {
+            result = "tie"
+        }
     }
-
-    return returnMessage;
+    updateScreen(playerSelection, computerSelection);
+    if (result == "win") return "You won I guess...";
+    else if (result == "loss") return "You lost bozo :)";
+    else return "It's a tie..."
     
 }
 
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         let userSelection = prompt("Enter Rock, Paper, or Scissors");
-//         console.log(userSelection);
-//         console.log(playRound(userSelection, getComputerChoice()))
-//     }
-// }
+function updateScreen(playerSelection, computerSelection, result) {
+    const playerText = document.querySelector(".player-selection");
+    const computerText = document.querySelector(".computer-selection");
+    playerText.innerText = `Player chose ${playerSelection}!`;
+    computerText.innerText = `Computer chose ${computerSelection}!`;
+    score.innerText = `Player: ${playerScore} Computer: ${computerScore}`;
+}
+
+function game() {
+    heading.innerText = (playRound(playerSelection, getComputerChoice()));
+}
+
+const heading = document.querySelector(".heading");
 const weaponButtons = document.querySelectorAll(".weapon");
+const score = document.querySelector(".score")
 weaponButtons.forEach( (weaponButton) => {
     weaponButton.addEventListener("click", () => {
         playerSelection = weaponButton.getAttribute("data-type");
+        game();
     })
 });
 
-playerSelection = "";
-weapons = ["rock", "paper", "scissors"];
-game();
+let playerScore = 0;
+let computerScore = 0;
+let playerSelection = "";
+let weapons = ["rock", "paper", "scissors"];

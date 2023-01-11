@@ -26,13 +26,20 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let userSelection = prompt("Enter Rock, Paper, or Scissors");
-        console.log(userSelection);
-        console.log(playRound(userSelection, getComputerChoice()))
-    }
-}
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         let userSelection = prompt("Enter Rock, Paper, or Scissors");
+//         console.log(userSelection);
+//         console.log(playRound(userSelection, getComputerChoice()))
+//     }
+// }
+const weaponButtons = document.querySelectorAll(".weapon");
+weaponButtons.forEach( (weaponButton) => {
+    weaponButton.addEventListener("click", () => {
+        playerSelection = weaponButton.getAttribute("data-type");
+    })
+});
 
+playerSelection = "";
 weapons = ["rock", "paper", "scissors"];
 game();

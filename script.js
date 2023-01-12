@@ -5,42 +5,42 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     let result;
-    if (playerSelection.toLowerCase() == "rock") {
-        if (computerSelection.toLowerCase() == "rock") {
+    if (playerSelection.toLowerCase() == "fire") {
+        if (computerSelection.toLowerCase() == "fire") {
             result = "tie" 
         }
-        else if (computerSelection.toLowerCase() == "paper") {
+        else if (computerSelection.toLowerCase() == "grass") {
             result = "loss" 
             computerScore++;
         }
-        else if (computerSelection.toLowerCase() == "scissors") {
+        else if (computerSelection.toLowerCase() == "water") {
             result = "win"
             playerScore++;
         }
     }
-    else if (playerSelection.toLowerCase() == "paper") {
-        if (computerSelection.toLowerCase() == "rock") {
+    else if (playerSelection.toLowerCase() == "grass") {
+        if (computerSelection.toLowerCase() == "fire") {
             result = "win" 
             playerScore++;
         }
-        else if (computerSelection.toLowerCase() == "paper") {
+        else if (computerSelection.toLowerCase() == "grass") {
             result = "tie" 
         }
-        else if (computerSelection.toLowerCase() == "scissors") {
+        else if (computerSelection.toLowerCase() == "water") {
             result = "loss"
             computerScore++;
         }
     }
-    else if (playerSelection.toLowerCase() == "scissors") {
-        if (computerSelection.toLowerCase() == "rock") {
+    else if (playerSelection.toLowerCase() == "water") {
+        if (computerSelection.toLowerCase() == "fire") {
             result = "loss" 
             computerScore++;
         }
-        else if (computerSelection.toLowerCase() == "paper") {
+        else if (computerSelection.toLowerCase() == "grass") {
             result = "win"
             playerScore++; 
         }
-        else if (computerSelection.toLowerCase() == "scissors") {
+        else if (computerSelection.toLowerCase() == "water") {
             result = "tie"
         }
     }
@@ -54,8 +54,8 @@ function playRound(playerSelection, computerSelection) {
 function updateScreen(playerSelection, computerSelection, result) {
     const playerText = document.querySelector(".player-selection");
     const computerText = document.querySelector(".computer-selection");
-    playerText.innerText = `Player chose ${playerSelection}!`;
-    computerText.innerText = `Computer chose ${computerSelection}!`;
+    playerText.innerText = `Player attacked with ${playerSelection}!`;
+    computerText.innerText = `Computer fights back with ${computerSelection}!`;
     score.innerText = `Player: ${playerScore} Computer: ${computerScore}`;
 }
 
@@ -76,4 +76,4 @@ weaponButtons.forEach( (weaponButton) => {
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection = "";
-let weapons = ["rock", "paper", "scissors"];
+let weapons = ["fire", "grass", "water"];

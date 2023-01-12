@@ -11,42 +11,42 @@ function playRound(playerSelection, computerSelection) {
         }
         else if (computerSelection.toLowerCase() == "grass") {
             result = "loss" 
-            computerScore++;
+            computerHealth--;
         }
         else if (computerSelection.toLowerCase() == "water") {
             result = "win"
-            playerScore++;
+            playerHealth--;
         }
     }
     else if (playerSelection.toLowerCase() == "grass") {
         if (computerSelection.toLowerCase() == "fire") {
             result = "win" 
-            playerScore++;
+            playerHealth--;
         }
         else if (computerSelection.toLowerCase() == "grass") {
             result = "tie" 
         }
         else if (computerSelection.toLowerCase() == "water") {
             result = "loss"
-            computerScore++;
+            computerHealth--;
         }
     }
     else if (playerSelection.toLowerCase() == "water") {
         if (computerSelection.toLowerCase() == "fire") {
             result = "loss" 
-            computerScore++;
+            computerHealth--;
         }
         else if (computerSelection.toLowerCase() == "grass") {
             result = "win"
-            playerScore++; 
+            playerHealth--; 
         }
         else if (computerSelection.toLowerCase() == "water") {
             result = "tie"
         }
     }
     updateScreen(playerSelection, computerSelection);
-    if (result == "win") return "You won I guess...";
-    else if (result == "loss") return "You lost bozo :)";
+    if (result == "win") return "PLAYER wins this round!";
+    else if (result == "loss") return "COMPUTER wins this round!";
     else return "It's a tie..."
     
 }
@@ -54,18 +54,20 @@ function playRound(playerSelection, computerSelection) {
 function updateScreen(playerSelection, computerSelection, result) {
     const playerText = document.querySelector(".player-selection");
     const computerText = document.querySelector(".computer-selection");
-    playerText.innerText = `Player attacked with ${playerSelection}!`;
-    computerText.innerText = `Computer fights back with ${computerSelection}!`;
-    score.innerText = `Player: ${playerScore} Computer: ${computerScore}`;
+    playerText.innerText = `PLAYER attacks with ${playerSelection}!`;
+    computerText.innerText = `COMPUTER fights back with ${computerSelection}!`;
+    playerHealthText.innerText = `PLAYER: ${"❤️".repeat(playerHealth)}`;
+    computerHealthText.innerText = `COMPUTER: ${"❤️".repeat(computerHealth)}`;
 }
 
 function game() {
-    heading.innerText = (playRound(playerSelection, getComputerChoice()));
+    resultText.innerText = (playRound(playerSelection, getComputerChoice()));
 }
 
-const heading = document.querySelector(".heading");
+const resultText = document.getElementById("result-text")
 const weaponButtons = document.querySelectorAll(".weapon");
-const score = document.querySelector(".score")
+const playerHealthText = document.getElementById("player-health");
+const computerHealthText = document.getElementById("computer-health");
 weaponButtons.forEach( (weaponButton) => {
     weaponButton.addEventListener("click", () => {
         playerSelection = weaponButton.getAttribute("data-type");
@@ -73,7 +75,8 @@ weaponButtons.forEach( (weaponButton) => {
     })
 });
 
-let playerScore = 0;
-let computerScore = 0;
+let playerHealth = 5;
+let computerHealth = 5;
 let playerSelection = "";
 let weapons = ["fire", "grass", "water"];
+

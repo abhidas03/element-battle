@@ -1,5 +1,45 @@
+#heading {
+    font-size: 4rem;
+}
+
+.container {
+    margin: auto;
+    text-align: center;
+}
+
+button {
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+#fire-text {
+    color: #fe7c7c;
+}
+
+#grass-text {
+    color: #84b99a
+}
+
+#water-text {
+    color: #98bfd4;
+}
+
+#fire-image {
+    width: 100px;
+}
+
+#grass-image {
+    width: 100px;
+    height: 107.84px;
+}
+
+#water-image {
+    width: 100px;
+    height: 107.84px;
+}
+
 #end-screen-container {
-    position: absolute;
+    position: fixed;
     z-index: 101;
     width: 600px;
     height: 400px;

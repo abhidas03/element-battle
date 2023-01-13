@@ -60,7 +60,7 @@ function updateScreen(playerSelection, computerSelection, result) {
     if (result == "win") resultText.innerText = `${playerName} wins!`
     else if (result == "loss") resultText.innerText = `${computerName} wins!`
     else if (result == "tie") resultText.innerText = "It's a tie..."
-    if(isGameOver()) endScreenContainer.classList.toggle("end-screen")
+    if(isGameOver()) endScreen();
 }
 
 function isGameOver() {
@@ -74,7 +74,7 @@ function getWinner() {
 }
 
 function endScreen() {
-    alert(`${getWinner()} won the fight!`);
+    endScreenElements.forEach( (item) => item.classList.toggle("end-screen"))
 }
 
 const playerText = document.querySelector(".player-selection");
@@ -83,7 +83,8 @@ const resultText = document.getElementById("result-text")
 const weaponButtons = document.querySelectorAll(".weapon");
 const playerHealthText = document.getElementById("player-health");
 const computerHealthText = document.getElementById("computer-health");
-const endScreenContainer = document.getElementById("end-screen-container");
+const endScreenElements = document.querySelectorAll(".end-screen");
+
 weaponButtons.forEach( (weaponButton) => {
     weaponButton.addEventListener("click", () => {
         playerSelection = weaponButton.getAttribute("data-type");

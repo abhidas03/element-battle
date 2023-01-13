@@ -26,6 +26,18 @@ button {
     margin-bottom: 25px;
 }
 
+#fire-weapon:hover {
+    background: #fe7c7c;
+}
+
+#grass-weapon:hover {
+    background: #84b99a;
+}
+
+#water-weapon:hover {
+    background: #98bfd4;
+}
+
 #grass-weapon {
     margin: 25px 0px 25px 100px;
 }
@@ -39,7 +51,7 @@ button {
 }
 
 #grass-text {
-    color: #84b99a
+    color: #84b99a;
 }
 
 #water-text {

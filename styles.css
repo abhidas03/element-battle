@@ -1,3 +1,14 @@
+body {
+    background:#65647C;
+    color: rgb(235, 209, 241);
+}
+
+button {
+    background: #F1D3B3;
+    border-radius: 15px;
+    border: 1px solid #8B7E74;
+}
+
 #heading {
     font-size: 4rem;
 }
@@ -7,9 +18,20 @@
     text-align: center;
 }
 
-button {
-    border-radius: 15px;
-    border: 1px solid black;
+.score-container {
+    font-size: 0.75rem;
+}
+
+#fire-weapon {
+    margin-bottom: 25px;
+}
+
+#grass-weapon {
+    margin: 25px 0px 25px 100px;
+}
+
+#water-weapon {
+    margin: 25px 100px 25px 0;
 }
 
 #fire-text {

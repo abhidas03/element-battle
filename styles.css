@@ -32,29 +32,28 @@ body:after {
     font-size: 4rem;
 }
 
-.container {
+#container {
     margin: auto;
     text-align: center;
 }
 
-.score-container {
+#score-container {
     font-size: 0.75rem;
 }
 
 #results-container {
     margin: auto;
     width: 600px;
-    height: 200px;
+    height: 180px;
     background: rgb(117, 91, 117);
     border-radius: 10px;
     border: 4px solid rgba(178, 140, 80, 0.3);
     padding: 20px;
-    
-
 }
 
 #fire-weapon {
-    margin-bottom: 25px;
+    margin-top: 25px;
+    margin-bottom: 45px;
 }
 
 #fire-weapon:hover {
@@ -70,11 +69,11 @@ body:after {
 }
 
 #grass-weapon {
-    margin: 25px 0px 25px 100px;
+    margin: 45px 0px 45px 100px;
 }
 
 #water-weapon {
-    margin: 25px 100px 25px 0;
+    margin: 45px 100px 45px 0;
 }
 
 #fire-text {

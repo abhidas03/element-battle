@@ -94,8 +94,8 @@ function resetText() {
     resultText.innerText = "";
 }
 
-const playerText = document.querySelector(".player-selection");
-const computerText = document.querySelector(".computer-selection");
+const playerText = document.getElementById("player-selection");
+const computerText = document.getElementById("computer-selection");
 const resultText = document.getElementById("result-text")
 const weaponButtons = document.querySelectorAll(".weapon");
 const playerHealthText = document.getElementById("player-health");

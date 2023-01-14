@@ -3,9 +3,11 @@ html, body {
 }
 
 body {
+    font-family: "Courier New", "Verdana", sans-serif;
     position: relative;
     background:#65647C;
     color: rgb(235, 209, 241);
+    text-align: center;
 }
 
 body:after {
@@ -37,6 +39,18 @@ body:after {
 
 .score-container {
     font-size: 0.75rem;
+}
+
+#results-container {
+    margin: auto;
+    width: 600px;
+    height: 200px;
+    background: rgb(117, 91, 117);
+    border-radius: 10px;
+    border: 4px solid rgba(178, 140, 80, 0.3);
+    padding: 20px;
+    
+
 }
 
 #fire-weapon {

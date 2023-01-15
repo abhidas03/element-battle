@@ -55,8 +55,8 @@ function playRound(playerSelection, computerSelection) {
 function updateScreen(playerSelection, computerSelection, result) {
     playerText.innerText = `PLAYER attacks with ${playerSelection}!`;
     computerText.innerText = `COMPUTER fights back with ${computerSelection}!`;
-    if (result == "win") resultText.innerText = `${playerName} wins!`
-    else if (result == "loss") resultText.innerText = `${computerName} wins!`
+    if (result == "win") resultText.innerText = `${playerName} wins this round!`
+    else if (result == "loss") resultText.innerText = `${computerName} wins this round!`
     else if (result == "tie") resultText.innerText = "It's a tie..."
     if(isGameOver()) endScreen();
 }
@@ -77,6 +77,9 @@ function getWinner() {
 }
 
 function endScreen() {
+    (getWinner() == playerName) ? endScreenText.innerText = `${playerName} won! You saved your dojo!` : 
+                                  endScreenText.innerText = `${computerName} won! They took over your dojo!`
+    
     endScreenElements.forEach( (item) => item.classList.toggle("end-screen"))
 }
 
@@ -102,6 +105,7 @@ const playerHealthText = document.getElementById("player-health");
 const computerHealthText = document.getElementById("computer-health");
 const endScreenElements = document.querySelectorAll(".end-screen");
 const restartButton = document.getElementById("restart-button");
+const endScreenText = document.getElementById("end-screen-text");
 
 weaponButtons.forEach( (weaponButton) => {
     weaponButton.addEventListener("click", () => {

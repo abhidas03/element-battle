@@ -2,11 +2,14 @@ html, body {
     min-height: 100%;
 }
 
-body {
+html {
     font-family: "Courier New", "Verdana", sans-serif;
+    color: rgb(235, 209, 241);
+}
+
+body {
     position: relative;
     background:#65647C;
-    color: rgb(235, 209, 241);
     text-align: center;
 }
 
@@ -22,12 +25,24 @@ body:after {
     background-color: rgba(0,0,0,0.2);
 }
 
-.weapon {
+button {
     background: #F1D3B3;
-    border-radius: 15px;
     border: 1px solid #8B7E74;
+    border-radius: 5px;
 }
 
+.weapon {
+    border-radius: 15px;
+}
+
+#restart-button {
+    height: 35px;
+    width: 160px;
+}
+
+#restart-button:hover {
+    background: #c2af9c;
+}
 #heading {
     font-size: 4rem;
 }
@@ -45,6 +60,7 @@ body:after {
     margin: auto;
     width: 600px;
     height: 180px;
+    font-size: 0.85rem;
     background: rgb(117, 91, 117);
     border-radius: 10px;
     border: 4px solid rgba(178, 140, 80, 0.3);
@@ -107,9 +123,10 @@ body:after {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -180px;
-    margin-top: -73px;
-    width: 300px;
+    margin-left: -230px;
+    margin-top: -90px;
+    width: 400px;
+    height: 120px;
     padding: 30px;
     border-radius: 15px;
     text-align: center;

@@ -54,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
 
 function updateScreen(playerSelection, computerSelection, result) {
     playerText.innerText = `PLAYER attacks with ${playerSelection}!`;
-    computerText.innerText = `COMPUTER fights back with ${computerSelection}!`;
+    computerText.innerText = `ENEMY fights back with ${computerSelection}!`;
     if (result == "win") resultText.innerText = `${playerName} wins this round!`
     else if (result == "loss") resultText.innerText = `${computerName} wins this round!`
     else if (result == "tie") resultText.innerText = "It's a tie..."
@@ -63,7 +63,7 @@ function updateScreen(playerSelection, computerSelection, result) {
 
 function updateHealth() {
     playerHealthText.innerText = `PLAYER: ${"❤️".repeat(playerHealth)}`;
-    computerHealthText.innerText = `COMPUTER: ${"❤️".repeat(computerHealth)}`;
+    computerHealthText.innerText = `ENEMY: ${"❤️".repeat(computerHealth)}`;
 }
 
 function isGameOver() {
@@ -77,8 +77,8 @@ function getWinner() {
 }
 
 function endScreen() {
-    (getWinner() == playerName) ? endScreenText.innerText = `${playerName} won! You saved your dojo!` : 
-                                  endScreenText.innerText = `${computerName} won! They took over your dojo!`
+    (getWinner() == playerName) ? endScreenText.innerText = `${playerName} won! You preserved your honor!` : 
+                                  endScreenText.innerText = `${computerName} won! Can you reclaim your honor in a rematch?`
     
     endScreenElements.forEach( (item) => item.classList.toggle("end-screen"))
 }
@@ -92,8 +92,8 @@ function restartGame() {
 }
 
 function resetText() {
-    playerText.innerText = "PLAYER and COMPUTER stare at each other... ";
-    computerText.innerText = "menacingly...";
+    playerText.innerText = "You were having a great day training at the dojo, when your arch-nemesis enters and challenges you to a duel.";
+    computerText.innerText = "In order to appear strong to your pupil, you accept. Can you defeat the enemy?";
     resultText.innerText = "";
 }
 
@@ -119,9 +119,10 @@ restartButton.addEventListener("click", ()=> {
 });
 
 let playerName = "PLAYER";
-let computerName = "COMPUTER";
+let computerName = "ENEMY";
 let playerHealth = 5;
 let computerHealth = 5;
 let playerSelection = "";
 let weapons = ["fire", "grass", "water"];
 
+resetText();

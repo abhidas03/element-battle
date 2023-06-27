@@ -1,3 +1,8 @@
+:root {
+    --main-bg: rgb(10, 20, 30);
+    --secondary-color: rgb(240, 230, 220);
+    --another-color: #ff9b9b;
+}
 html, body {
     min-height: 100%;
 }
@@ -9,7 +14,7 @@ html {
 
 body {
     position: relative;
-    background:#65647C;
+    background: var(--main-bg);
     text-align: center;
 }
 
@@ -26,7 +31,7 @@ body:after {
 }
 
 button {
-    background: #F1D3B3;
+    background: var(--secondary-color);
     border: 1px solid #8B7E74;
     border-radius: 5px;
 }
@@ -57,11 +62,12 @@ button {
 }
 
 #results-container {
+    color: rgb(10, 20, 30);
     margin: auto;
     width: 600px;
     height: 180px;
     font-size: 0.85rem;
-    background: rgb(117, 91, 117);
+    background: var(--another-color);
     border-radius: 10px;
     border: 4px solid rgba(178, 140, 80, 0.3);
     padding: 20px;
